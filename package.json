@@ -28,6 +28,6 @@
   "dependencies": {
     "geoip-lite": "^1.1.3",
     "ip": "^0.3.0",
-    "openweathermap": "0.0.3"
+    "openweather-node": "0.0.4"
   }
 }
