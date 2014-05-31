@@ -3,7 +3,7 @@
  */
 var ip = require('ip');
 var geoip = require('geoip-lite').lookup;
-var weather = require('openweathermap');
+var weather = require('openweather-node');
 var format = require('util').format;
 
 module.exports.commands = {
@@ -20,9 +20,17 @@ module.exports.commands = {
     if (!location)
       return done(new Error('Please, specify your location.'));
 
-    weather.now({q: location}, function(data) {
-      console.log(data);
-      // done(null, data.toString());
+    weather.now(location, function(err, data) {
+      if (err)
+        return done(err);
+        
+      var temperature = data.getDegreeTemp();
+
+      done(null, format('Temperature: %d, min: %d, max: %d',
+        Math.round(temperature.temp),
+        temperature.temp_min,
+        temperature.temp_max
+      ));
     });
   }
 };
