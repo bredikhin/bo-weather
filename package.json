@@ -23,7 +23,7 @@
   "homepage": "https://github.com/bredikhin/bo-weather",
   "devDependencies": {
     "mocha": "^1.20.0",
-    "should": "^3.3.2"
+    "should": "^4.0.0"
   },
   "dependencies": {
     "geoip-lite": "^1.1.3",
